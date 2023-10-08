@@ -86,10 +86,9 @@ def use_template(template_name, jinja_env, json_resume, prelim_section_ordering)
             awards=json_resume["awards"], heading="Awards"
         )
 
-    resume = resume_template.render(
+    return resume_template.render(
         sections=sections, section_ordering=section_ordering
     )
-    return resume
 
 
 def get_final_section_ordering(section_ordering):

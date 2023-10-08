@@ -60,9 +60,7 @@ if uploaded_file is not None:
 
     improve_check = st.checkbox("I want to improve the resume with LLMs", value=True)
 
-    generate_button = st.button("Generate Resume")
-
-    if generate_button:
+    if generate_button := st.button("Generate Resume"):
         try:
             if improve_check:
                 with st.spinner("Tailoring the resume"):

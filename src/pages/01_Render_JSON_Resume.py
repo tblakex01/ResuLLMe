@@ -41,9 +41,7 @@ if uploaded_file is not None:
         ["education", "work", "skills", "projects", "awards"],
     )
 
-    generate_button = st.button("Generate Resume")
-
-    if generate_button:
+    if generate_button := st.button("Generate Resume"):
         json_resume = json.loads(text)
         latex_resume = generate_latex(chosen_option, json_resume, section_ordering)
 

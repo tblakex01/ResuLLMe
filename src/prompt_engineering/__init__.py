@@ -223,8 +223,7 @@ def tailor_resume(cv_text, api_key, model="gpt-3.5-turbo"):
             api_key=api_key,
         )
 
-        answer = response["choices"][0]["message"]["content"]
-        return answer
+        return response["choices"][0]["message"]["content"]
     except Exception as e:
         print(e)
         print("Failed to tailor resume.")

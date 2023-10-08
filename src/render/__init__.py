@@ -5,7 +5,7 @@ import shutil
 
 
 def render_latex(latex_command, latex_data):
-    src_path = os.path.dirname(os.path.realpath(__file__)) + "/inputs"
+    src_path = f"{os.path.dirname(os.path.realpath(__file__))}/inputs"
 
     with tempfile.TemporaryDirectory() as tmpdirname:
         # Copy auxiliary files to temporary directory

@@ -12,26 +12,19 @@ def extract_text_from_docx(file):
 
 def extract_text_from_upload(file):
     if file.type == "application/pdf":
-        text = extract_text_from_pdf(file)
-        return text
+        return extract_text_from_pdf(file)
     elif (
         file.type
         == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ):
-        text = extract_text_from_docx(file)
-        return text
-    elif file.type == "application/json":
-        return file.getvalue().decode("utf-8")
+        return extract_text_from_docx(file)
     else:
         return file.getvalue().decode("utf-8")
 
 
 def escape_for_latex(data):
     if isinstance(data, dict):
-        new_data = {}
-        for key in data.keys():
-            new_data[key] = escape_for_latex(data[key])
-        return new_data
+        return {key: escape_for_latex(data[key]) for key in data.keys()}
     elif isinstance(data, list):
         return [escape_for_latex(item) for item in data]
     elif isinstance(data, str):
